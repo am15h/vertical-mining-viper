@@ -1,4 +1,10 @@
-# Tubro Charging Vertical Mining of Large Databases 
+# Turbo Charging Vertical Mining of Large Databases 
+
+### Steps to run:
+
+1. `g++ main.cpp forc.cpp item_set.cpp vtv.cpp viper.cpp`
+
+2. `a.exe input.txt`
 
 ### Contributors:
 
