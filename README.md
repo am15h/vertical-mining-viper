@@ -1,1 +1,2 @@
-# vertical-mining-viper
+# Tubro Charging Vertical Mining of Large Databases 
+
