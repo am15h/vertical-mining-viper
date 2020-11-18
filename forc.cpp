@@ -6,8 +6,7 @@ typedef long long ll;
 // return newp, ck+1, remlist
 
 /*
-10
-
+3
 1    6      1 4 3 2 5 6
 2    3      5 7 8
 3    4      4 6 5 8
@@ -17,6 +16,8 @@ typedef long long ll;
 vector<pair<ll, pair<ll, ll>>> set_of_itemsets(vector<ll> s_k) {
 
     map<ll, vector<ll>> hash_table;
+
+    cout << "FORC running" << endl;
 
     for (ll i = 0; i < s_k.size(); i++) {
         hash_table[s_k[i] / 10].push_back(s_k[i]%10);

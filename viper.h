@@ -1,7 +1,8 @@
-#include <vector>
+#pragma once
 
-#include "vtv.h"
+#include <bits/stdc++.h>
 #include "item_set.h"
+#include "vtv.h"
 
 using namespace std;
 
@@ -11,8 +12,9 @@ class Viper {
 
     /// total_items: max integer in the HIL database
     vector<item_set> create_single_snakes(vector<vector<int>> database,
-                                     int total_items, double min_support) {
+                                          int total_items, double min_support) {
         int no_of_rows = database.size();
+        cout << "Creating single snakes..." << endl;
 
         vector<vector<bool>> matrix(no_of_rows);
 
@@ -35,7 +37,7 @@ class Viper {
             for (int row = 0; row < no_of_rows; row++) {
                 item.push_back(matrix[row][col]);
             }
-            item_set is = item_set({(unsigned int)(col+1)}, item);
+            item_set is = item_set({(unsigned int)(col + 1)}, item);
             individual_snakes.push_back(is);
             if (item.support() >= min_support) {
                 f1.push_back(is);
