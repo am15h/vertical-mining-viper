@@ -17,3 +17,8 @@ Under the guidance of **Prof. Partha Pratim Roy**
 * Implementation of **VIPER algorithm**
 * Implementation of **FORC Candidate Generation Algorithm**
 * Implementation of **FANGS Snake processing algorithm**
+
+
+### Original Publication:
+
+* [Turbo-charging vertical mining of large databases](https://dl.acm.org/doi/10.1145/342009.335376) by  P. Shenoy Et al.
