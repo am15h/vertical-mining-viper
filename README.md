@@ -10,7 +10,7 @@
 
 1. `g++ main.cpp forc.cpp item_set.cpp vtv.cpp viper.cpp`
 
-2.`./a.out input.txt`
+2. `./a.out input.txt`
 
 ### Contributors:
 
