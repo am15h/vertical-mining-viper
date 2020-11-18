@@ -15,7 +15,7 @@ class item_set {
    public:
     item_set();
     item_set(vector<uint32_t> name, vtv bits);
-    double support() const;
+    double support();
     item_set dot(item_set set2);
     vector<uint32_t> getName();
     vtv getBits();

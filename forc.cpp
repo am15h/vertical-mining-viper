@@ -14,10 +14,7 @@ typedef long long ll;
 
 */
 
-pair<ll, pair<vector<ll>,vector<ll>>> set_of_itemsets(vector<ll> s_k) {
-
-
-    pair<ll, pair<vector<ll>,vector<ll>>> ret;
+vector<pair<ll, pair<ll, ll>>> set_of_itemsets(vector<ll> s_k) {
 
     map<ll, vector<ll>> hash_table;
 
@@ -25,7 +22,11 @@ pair<ll, pair<vector<ll>,vector<ll>>> set_of_itemsets(vector<ll> s_k) {
         hash_table[s_k[i] / 10].push_back(s_k[i]%10);
     }
 
+    vector<ll> rem;
+    vector<ll> pnew;
     vector<ll> c_next;
+
+    vector<pair<ll, pair<ll, ll>>> ret;
 
     for (auto i = hash_table.begin(); i != hash_table.end(); i++) {
         vector<ll> ext_list = i->second;
@@ -33,6 +34,7 @@ pair<ll, pair<vector<ll>,vector<ll>>> set_of_itemsets(vector<ll> s_k) {
 
         for (ll j = 0; j < ext_list.size(); j++) {
             ll new_p = p * 10 + ext_list[j];
+            pnew.push_back(new_p);
             vector<ll> rem_list;
 
             for (ll k = j + 1; k < ext_list.size(); k++)
@@ -51,7 +53,7 @@ pair<ll, pair<vector<ll>,vector<ll>>> set_of_itemsets(vector<ll> s_k) {
             for (ll k = 0; k < all_subsets.size(); k++) {
                 vector<ll> current_ext_list = hash_table[all_subsets[k]];
 
-                vector<ll> common;
+                vector<ll> common(10000);
                 vector<ll>::iterator it, st;
 
                 sort(rem_list.begin(), rem_list.end());
@@ -69,12 +71,15 @@ pair<ll, pair<vector<ll>,vector<ll>>> set_of_itemsets(vector<ll> s_k) {
                 rem_list = intersection;
             }
 
+            rem = rem_list;
+
             for (ll k = 0; k < rem_list.size(); k++) {
                 ll new_candidate = new_p * 10 + rem_list[k];
                 c_next.push_back(new_candidate);
+                ret.push_back({new_candidate, {new_p, rem_list[k]}});
             }
         }
     }
 
-    return c_next;
+    return ret;
 }

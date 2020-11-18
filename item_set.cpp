@@ -13,3 +13,7 @@ item_set item_set::dot(item_set set2) {
 
     return item_set(res_name, res_vtv);
 }
+
+double item_set::support() {
+    return m_bits.support();
+}

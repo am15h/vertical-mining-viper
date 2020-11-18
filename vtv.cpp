@@ -42,8 +42,8 @@ vector<int> vtv::compress() {
     
     // taking W0 as 4 and W1 as 1
     const int W0 = 4, W1 = 1;
-    const int r0 = (int)log2(W0);
-    const int r1 = (int)log2(W1);
+    const int r0 = 2;
+    const int r1 = 0;
 
     vector<int> cmp;
     vector<int> cnts;
