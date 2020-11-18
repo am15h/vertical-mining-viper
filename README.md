@@ -23,6 +23,7 @@ Under the guidance of **Prof. Partha Pratim Roy**
 * Implementation of **VIPER algorithm**
 * Implementation of **FORC Candidate Generation Algorithm**
 * Implementation of **FANGS Snake processing algorithm**
+* Implementation of **Skinning Algorithm**
 
 
 ### Original Publication:
