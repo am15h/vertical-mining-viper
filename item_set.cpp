@@ -12,11 +12,11 @@ bool item_set::operator[](size_t index) const { return m_bits[index]; }
 item_set item_set::dot(item_set set2) {
     vector<uint32_t> res_name;
     res_name = m_name;
-    cout << "A\n";
+//    cout << "A\n";
     res_name.push_back(set2.getName()[0]);
-    cout << "B\n";
+ //   cout << "B\n";
     vtv res_vtv = m_bits.dot(set2.getBits());
-    cout << "C\n";
+  //  cout << "C\n";
     return item_set(res_name, res_vtv);
 }
 

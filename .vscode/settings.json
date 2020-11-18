@@ -6,6 +6,7 @@
         "tuple": "cpp",
         "mutex": "cpp",
         "streambuf": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "iostream": "cpp"
     }
 }

@@ -19,7 +19,7 @@ void Viper::apply(vector<vector<int>> database, int total_items,
     vector<item_set> F1 =
         create_single_snakes(database, total_items, min_support);
 
-    cout << "F1 item_set created, size: " << F1.size() << endl;
+    // cout << "F1 item_set created, size: " << F1.size() << endl;
 
     /// Pass 2
     int f1_size = F1.size();
@@ -42,7 +42,8 @@ void Viper::apply(vector<vector<int>> database, int total_items,
         }
     }
 
-    unordered_map<ll, item_set> F2;
+    map<ll, item_set> F2;
+    map<ll, item_set> C2;
     vector<ll> prev_candidates;
     for (int i = 0; i < f1_size; i++) {
         for (int j = i + 1; j < f1_size; j++) {
@@ -51,10 +52,11 @@ void Viper::apply(vector<vector<int>> database, int total_items,
                 F2[i * 10 + j] = is;
                 prev_candidates.push_back(i * 10 + j);
             }
+            C2[i * 10 + j] = F1[i].dot(F1[j]);
         }
     }
 
-    cout << "F2 item_set created, size: " << F2.size() << endl;
+    // cout << "F2 item_set created, size: " << F2.size() << endl;
 
     // delete counter array
     for (int i = 0; i < f1_size; i++) {
@@ -63,24 +65,27 @@ void Viper::apply(vector<vector<int>> database, int total_items,
     delete[] counter;
 
     /// Subsequent Passes
-    vector<unordered_map<ll, item_set>> FK;
-    FK.push_back(F2);
+    vector<map<ll, item_set>> FK(1000);
+    vector<map<ll, item_set>> CK(1000);
+    CK[0] = C2;
+    FK[0] = F2;
     for (int i = 3; i < 10; i++) {
         vector<pair<ll, pair<ll, ll>>> candidates = set_of_itemsets(prev_candidates);
-        printf("Cadidates %d %d\n", i, candidates.size());
+        // printf("Cadidates %d %d\n", i, candidates.size());
         vector<ll> temp;
         for (int idx = 0; idx < candidates.size(); ++idx) {
-            printf("Itemset %d\n", i);
+            // printf("Itemset %d\n", i);
             int remlist_K = candidates[idx].second.second;
             int new_p = candidates[idx].second.first;
             int new_candidate = candidates[idx].first;
-            printf("Itemset LL %d %d\n", i, remlist_K);
-            item_set is = FK[i-2][new_p].dot(F1[remlist_K]);
-            printf("Itemset %d %d\n", i);
+            // printf("Itemset LL %d %d\n", i, remlist_K);
+            item_set is = CK[i-3][new_p].dot(F1[remlist_K]);
+            // printf("Itemset %d %d\n", i);
+            CK[i-2][new_candidate] = is;
             if (is.support() >= min_support) {
-                FK[i][new_candidate] = is;
+                FK[i-2][new_candidate] = is;
                 temp.push_back(new_candidate);
-                printf("F%d item_set created, size: %d\n",i, FK[i].size());
+                // printf("F%d item_set created, size: %d\n",i, FK[i].size());
             }
         }
         if (temp.size() == 0) {
@@ -88,7 +93,7 @@ void Viper::apply(vector<vector<int>> database, int total_items,
         }
         prev_candidates = temp;
     }
-    for(int idx = 0; idx < FK.size(); ++idx) {
+    for(int idx = 0; idx < 10; ++idx) {
         
         for(auto j = FK[idx].begin() ; j != FK[idx].end() ; j++) {
             std::cout << j -> first << " : " << (j -> second).support() << std::endl;
