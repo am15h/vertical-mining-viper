@@ -11,7 +11,7 @@ void Viper::apply(vector<vector<int>> database, int total_items,
                   double min_support) {
     int no_of_rows = database.size();
     
-    cout << "Applying VIPER procedure..." << endl;
+    cout << "Applying VIPER procedure...\n" << endl;
 
     /// Pass 1
 
@@ -19,6 +19,7 @@ void Viper::apply(vector<vector<int>> database, int total_items,
     vector<item_set> F1 =
         create_single_snakes(database, total_items, min_support);
 
+    cout << "Pass 1\n";
     cout << "F1 item_set created, size: " << F1.size() << endl;
 
     /// Pass 2
@@ -56,7 +57,10 @@ void Viper::apply(vector<vector<int>> database, int total_items,
         }
     }
 
+    cout << "Pass 2\n";
     cout << "F2 item_set created, size: " << F2.size() << endl;
+
+    printf("\nFORC procedure running... \n");
 
     // delete counter array
     for (int i = 0; i < f1_size; i++) {
@@ -70,6 +74,7 @@ void Viper::apply(vector<vector<int>> database, int total_items,
     CK[0] = C2;
     FK[0] = F2;
     // Start running FANGS algorithm
+    printf("FANGS procedure running... \n");
     for (int i = 3; i < 10; i++) {
         // get candidates at level i from FORC algorithm
         vector<pair<ll, pair<ll, ll>>> candidates = set_of_itemsets(prev_candidates);
@@ -99,7 +104,7 @@ void Viper::apply(vector<vector<int>> database, int total_items,
         prev_candidates = temp;
     }
 
-    printf("\n Printing Frequent-K item-sets\n");
+    cout << "\n\nPrinting Frequent-K item-sets\n";
 
     // Print out the frequent itemsets as result
     for(int idx = 0; idx < 10; ++idx) {
