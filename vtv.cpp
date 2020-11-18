@@ -34,6 +34,7 @@ int vtv::support() {
 }
 
 vector<int> vtv::compress() {
+    //getting size of vtv vector
     int n = m_bits.size();
     if(n==0){
         cout<<"empty vector"<<endl;
@@ -42,13 +43,14 @@ vector<int> vtv::compress() {
     
     // taking W0 as 4 and W1 as 1
     const int W0 = 4, W1 = 1;
+    // nmber of bits required to store reminder = log2(W)
     const int r0 = 2;
     const int r1 = 0;
-
+    //saving compressed bool vector in cmp
     vector<int> cmp;
+    //counting coutineous 0's and 1's
     vector<int> cnts;
     int cnt = 1;
-
     for (int i = 1; i <=n; i++) {
         if ((i == n) || (m_bits[i] != m_bits[i - 1])) {
             cnts.push_back(cnt);
@@ -60,6 +62,7 @@ vector<int> vtv::compress() {
     bool j = (m_bits[0]==1);
     for(int i = 0; i<(int)cnts.size();i++){
         int quotient,reminder;
+        // finding quotient and reminder
         if(j){
             quotient = cnts[i]/W1;
             reminder = cnts[i]%W1;
@@ -67,9 +70,11 @@ vector<int> vtv::compress() {
             quotient = cnts[i]/W0;
             reminder = cnts[i]%W0;
         }
+        // printing 1 for quotient number of times
         for(int k = 0;k<quotient;k++){
             cmp.push_back(1);
         }
+        //pushing 0 after every quotient
         cmp.push_back(0);
         //push binary representation of reminder
         string rem = "";

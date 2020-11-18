@@ -51,4 +51,25 @@ class Viper {
     /// Input HIL database and minSupport
     void apply(vector<vector<int>> database, int total_items,
                double min_support);
+
+    string itemize(long long num){
+        // [1, 2, 3]
+        string str = to_string(num);
+        string fin = "{";
+        for(int i = 0; i < str.size(); i++){
+            fin.push_back(str[i]);
+            fin+=", ";
+        }
+        fin.pop_back();
+        fin.pop_back();
+        fin.push_back('}');
+
+        int max_size = 25;
+        if(fin.size() < 25){
+            int diff = max_size - fin.size();
+            string s(diff, ' ');
+            fin += s;
+        }    
+        return fin;
+    }           
 };

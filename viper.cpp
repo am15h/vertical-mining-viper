@@ -19,7 +19,7 @@ void Viper::apply(vector<vector<int>> database, int total_items,
     vector<item_set> F1 =
         create_single_snakes(database, total_items, min_support);
 
-    // cout << "F1 item_set created, size: " << F1.size() << endl;
+    cout << "F1 item_set created, size: " << F1.size() << endl;
 
     /// Pass 2
     int f1_size = F1.size();
@@ -56,7 +56,7 @@ void Viper::apply(vector<vector<int>> database, int total_items,
         }
     }
 
-    // cout << "F2 item_set created, size: " << F2.size() << endl;
+    cout << "F2 item_set created, size: " << F2.size() << endl;
 
     // delete counter array
     for (int i = 0; i < f1_size; i++) {
@@ -69,34 +69,45 @@ void Viper::apply(vector<vector<int>> database, int total_items,
     vector<map<ll, item_set>> CK(1000);
     CK[0] = C2;
     FK[0] = F2;
+    // Start running FANGS algorithm
     for (int i = 3; i < 10; i++) {
+        // get candidates at level i from FORC algorithm
         vector<pair<ll, pair<ll, ll>>> candidates = set_of_itemsets(prev_candidates);
-        // printf("Cadidates %d %d\n", i, candidates.size());
+        
         vector<ll> temp;
+        // generate support for all chosen candidates
         for (int idx = 0; idx < candidates.size(); ++idx) {
-            // printf("Itemset %d\n", i);
+    
             int remlist_K = candidates[idx].second.second;
             int new_p = candidates[idx].second.first;
             int new_candidate = candidates[idx].first;
-            // printf("Itemset LL %d %d\n", i, remlist_K);
+            
             item_set is = CK[i-3][new_p].dot(F1[remlist_K]);
-            // printf("Itemset %d %d\n", i);
+            
             CK[i-2][new_candidate] = is;
+            // If support is more than minimum support, insert into frequent candidates
             if (is.support() >= min_support) {
                 FK[i-2][new_candidate] = is;
                 temp.push_back(new_candidate);
-                // printf("F%d item_set created, size: %d\n",i, FK[i].size());
             }
         }
+        printf("F%d item_set created, size: %d\n", i, FK[i-2].size());
+        // If no new frequent candidates found, exit generation
         if (temp.size() == 0) {
             break;
         }
         prev_candidates = temp;
     }
+
+    printf("\n Printing Frequent-K item-sets\n");
+
+    // Print out the frequent itemsets as result
     for(int idx = 0; idx < 10; ++idx) {
         
         for(auto j = FK[idx].begin() ; j != FK[idx].end() ; j++) {
-            std::cout << j -> first << " : " << (j -> second).support() << std::endl;
+            std::cout << "Itemset: " << itemize(j -> first) << "    Support: " << (j -> second).support() << std::endl;
         }
     }
 }
+
+

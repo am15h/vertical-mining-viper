@@ -3,21 +3,14 @@
 using namespace std;
 typedef long long ll;
 
-// return newp, ck+1, remlist
-
-/*
-3
-1    6      1 4 3 2 5 6
-2    3      5 7 8
-3    4      4 6 5 8
-
-*/
-
 vector<pair<ll, pair<ll, ll>>> set_of_itemsets(vector<ll> s_k) {
+
+
+    // HashTable stores prefixes and their corresponding extList
 
     map<ll, vector<ll>> hash_table;
 
-    cout << "FORC running" << endl;
+    // Create HashTable
 
     for (ll i = 0; i < s_k.size(); i++) {
         hash_table[s_k[i] / 10].push_back(s_k[i]%10);
@@ -29,6 +22,8 @@ vector<pair<ll, pair<ll, ll>>> set_of_itemsets(vector<ll> s_k) {
 
     vector<pair<ll, pair<ll, ll>>> ret;
 
+    // Here we generate new items for Ck+1 at each step
+
     for (auto i = hash_table.begin(); i != hash_table.end(); i++) {
         vector<ll> ext_list = i->second;
         ll p = i->first;
@@ -36,10 +31,15 @@ vector<pair<ll, pair<ll, ll>>> set_of_itemsets(vector<ll> s_k) {
         for (ll j = 0; j < ext_list.size(); j++) {
             ll new_p = p * 10 + ext_list[j];
             pnew.push_back(new_p);
+
+            // rem_list stores the last character all possible candidate itemsets
+
             vector<ll> rem_list;
 
             for (ll k = j + 1; k < ext_list.size(); k++)
                 rem_list.push_back(ext_list[k]);
+
+            // Generate all k-subsets of new_p
 
             vector<ll> all_subsets;
             ll size = log10(new_p);
@@ -73,6 +73,8 @@ vector<pair<ll, pair<ll, ll>>> set_of_itemsets(vector<ll> s_k) {
             }
 
             rem = rem_list;
+
+            // Generate new items for Ck+1
 
             for (ll k = 0; k < rem_list.size(); k++) {
                 ll new_candidate = new_p * 10 + rem_list[k];
