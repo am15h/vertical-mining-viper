@@ -1,0 +1,120 @@
+Applying VIPER procedure...
+
+Creating single snakes...
+Pass 1
+F1 item_set created, size: 8
+Pass 2
+F2 item_set created, size: 25
+
+FORC procedure running... 
+FANGS procedure running... 
+F3 item_set created, size: 37
+F4 item_set created, size: 27
+F5 item_set created, size: 11
+F6 item_set created, size: 2
+F7 item_set created, size: 0
+
+
+Printing Frequent-K item-sets
+Itemset: {2}                          Support: 21
+Itemset: {3}                          Support: 18
+Itemset: {4}                          Support: 21
+Itemset: {6}                          Support: 32
+Itemset: {1, 2}                       Support: 19
+Itemset: {1, 3}                       Support: 28
+Itemset: {1, 4}                       Support: 27
+Itemset: {1, 5}                       Support: 28
+Itemset: {1, 6}                       Support: 19
+Itemset: {1, 7}                       Support: 17
+Itemset: {2, 3}                       Support: 35
+Itemset: {2, 4}                       Support: 60
+Itemset: {2, 5}                       Support: 47
+Itemset: {2, 6}                       Support: 60
+Itemset: {2, 7}                       Support: 13
+Itemset: {3, 4}                       Support: 35
+Itemset: {3, 5}                       Support: 44
+Itemset: {3, 6}                       Support: 46
+Itemset: {3, 7}                       Support: 16
+Itemset: {4, 5}                       Support: 35
+Itemset: {4, 6}                       Support: 60
+Itemset: {4, 7}                       Support: 19
+Itemset: {5, 6}                       Support: 35
+Itemset: {5, 7}                       Support: 16
+Itemset: {6, 7}                       Support: 13
+Itemset: {2, 4}                       Support: 21
+Itemset: {2, 6}                       Support: 21
+Itemset: {3, 6}                       Support: 18
+Itemset: {4, 6}                       Support: 21
+Itemset: {1, 2, 3}                    Support: 19
+Itemset: {1, 2, 4}                    Support: 19
+Itemset: {1, 2, 5}                    Support: 19
+Itemset: {1, 2, 6}                    Support: 19
+Itemset: {1, 3, 4}                    Support: 19
+Itemset: {1, 3, 5}                    Support: 28
+Itemset: {1, 3, 6}                    Support: 19
+Itemset: {1, 3, 7}                    Support: 11
+Itemset: {1, 4, 5}                    Support: 19
+Itemset: {1, 4, 6}                    Support: 19
+Itemset: {1, 4, 7}                    Support: 14
+Itemset: {1, 5, 6}                    Support: 19
+Itemset: {1, 5, 7}                    Support: 11
+Itemset: {2, 3, 4}                    Support: 35
+Itemset: {2, 3, 5}                    Support: 35
+Itemset: {2, 3, 6}                    Support: 35
+Itemset: {2, 3, 7}                    Support: 13
+Itemset: {2, 4, 5}                    Support: 35
+Itemset: {2, 4, 6}                    Support: 60
+Itemset: {2, 4, 7}                    Support: 13
+Itemset: {2, 5, 6}                    Support: 35
+Itemset: {2, 5, 7}                    Support: 13
+Itemset: {2, 6, 7}                    Support: 13
+Itemset: {3, 4, 5}                    Support: 35
+Itemset: {3, 4, 6}                    Support: 35
+Itemset: {3, 4, 7}                    Support: 13
+Itemset: {3, 5, 6}                    Support: 35
+Itemset: {3, 5, 7}                    Support: 16
+Itemset: {3, 6, 7}                    Support: 13
+Itemset: {4, 5, 6}                    Support: 35
+Itemset: {4, 5, 7}                    Support: 13
+Itemset: {4, 6, 7}                    Support: 13
+Itemset: {5, 6, 7}                    Support: 13
+Itemset: {2, 4, 6}                    Support: 21
+Itemset: {1, 2, 3, 4}                 Support: 19
+Itemset: {1, 2, 3, 5}                 Support: 19
+Itemset: {1, 2, 3, 6}                 Support: 19
+Itemset: {1, 2, 4, 5}                 Support: 19
+Itemset: {1, 2, 4, 6}                 Support: 19
+Itemset: {1, 2, 5, 6}                 Support: 19
+Itemset: {1, 3, 4, 5}                 Support: 19
+Itemset: {1, 3, 4, 6}                 Support: 19
+Itemset: {1, 3, 5, 6}                 Support: 19
+Itemset: {1, 3, 5, 7}                 Support: 11
+Itemset: {1, 4, 5, 6}                 Support: 19
+Itemset: {2, 3, 4, 5}                 Support: 35
+Itemset: {2, 3, 4, 6}                 Support: 35
+Itemset: {2, 3, 4, 7}                 Support: 13
+Itemset: {2, 3, 5, 6}                 Support: 35
+Itemset: {2, 3, 5, 7}                 Support: 13
+Itemset: {2, 3, 6, 7}                 Support: 13
+Itemset: {2, 4, 5, 6}                 Support: 35
+Itemset: {2, 4, 5, 7}                 Support: 13
+Itemset: {2, 4, 6, 7}                 Support: 13
+Itemset: {2, 5, 6, 7}                 Support: 13
+Itemset: {3, 4, 5, 6}                 Support: 35
+Itemset: {3, 4, 5, 7}                 Support: 13
+Itemset: {3, 4, 6, 7}                 Support: 13
+Itemset: {3, 5, 6, 7}                 Support: 13
+Itemset: {4, 5, 6, 7}                 Support: 13
+Itemset: {1, 2, 3, 4, 5}              Support: 19
+Itemset: {1, 2, 3, 4, 6}              Support: 19
+Itemset: {1, 2, 3, 5, 6}              Support: 19
+Itemset: {1, 2, 4, 5, 6}              Support: 19
+Itemset: {1, 3, 4, 5, 6}              Support: 19
+Itemset: {2, 3, 4, 5, 6}              Support: 35
+Itemset: {2, 3, 4, 5, 7}              Support: 13
+Itemset: {2, 3, 4, 6, 7}              Support: 13
+Itemset: {2, 3, 5, 6, 7}              Support: 13
+Itemset: {2, 4, 5, 6, 7}              Support: 13
+Itemset: {3, 4, 5, 6, 7}              Support: 13
+Itemset: {1, 2, 3, 4, 5, 6}           Support: 19
+Itemset: {2, 3, 4, 5, 6, 7}           Support: 13
